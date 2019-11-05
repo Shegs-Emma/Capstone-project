@@ -1,0 +1,26 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "Contains my capstone project code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shegs-Emma/Capstone-project.git"
+  },
+  "author": "EmmyM_ighty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shegs-Emma/Capstone-project/issues"
+  },
+  "homepage": "https://github.com/Shegs-Emma/Capstone-project#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}
