@@ -6,12 +6,12 @@ const express       = require('express'),
 
 
 //Write or share articles on subjects of interest
-router.post('/articles', auth, articleCtrl.createArticle);
+router.post('/articles', articleCtrl.createArticle);
 
 
 
 //Edit their articles
-router.put('/articles/:id', auth, articleCtrl.editArticle);
+router.put('/articles/:id', articleCtrl.editArticle);
 
 
 //Delete their articles
