@@ -11,7 +11,7 @@ router.post('/articles', articleCtrl.createArticle);
 
 
 //Edit their articles
-router.put('/articles/:id', articleCtrl.editArticle);
+router.put('/articles/:id', auth, articleCtrl.editArticle);
 
 
 //Delete their articles
@@ -20,12 +20,13 @@ router.delete('/articles/:id', auth, articleCtrl.deleteArticle);
 
 
 //Comment on other people's article's posts
-router.post('/articles/comments', auth, articleCtrl.commentArticle);
+router.post('/articles/comments', articleCtrl.commentArticle);
 
 
 
 //View all articles showing the most recent first
-router.get('/articles?sort={recently_created}', auth, articleCtrl.allArticles);
+router.get('/articles', auth, articleCtrl.allArticles);
+
 
 
 //View a specific article

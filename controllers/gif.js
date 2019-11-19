@@ -48,5 +48,24 @@ exports.deleteGif = (req, res, next)=>{
 };
 
 exports.gifComments = (req, res, next)=>{
+    const commentBody = req.body.commentBody;
+    const gifId = req.body.gifId;
 
+
+    const query = {
+        text: 'INSERT INTO comment_s (comment_body, gif_id) VALUES($1, $2)',
+        values: [commentBody, gifId],
+    }
+
+    pool.query(query).then(
+        (response)=>{
+            res.status(201).json({response});
+            pool.end();
+        }
+    ).catch((error)=>{
+        
+        res.status(500).json({
+            error: 'Something went wrong'
+        });
+    })
 };

@@ -8,7 +8,7 @@ router.post('/', gifControl.createGif);
 
 
 //Delete their gifs
-router.delete('/:id', gifControl.deleteGif);
+router.delete('/:id', auth, gifControl.deleteGif);
 
 //Comment on other people's gif posts
 router.post('/comments', gifControl.gifComments);
