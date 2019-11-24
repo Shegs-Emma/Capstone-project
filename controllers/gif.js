@@ -1,4 +1,5 @@
-const Pool              = require('pg').Pool;
+const Pool              = require('pg').Pool,
+      cloudinary        = require('cloudinary').v2;
 
 const pool = new Pool ({
     user: 'postgres',
@@ -9,10 +10,20 @@ const pool = new Pool ({
 });
 
 
+cloudinary.config({
+    cloud_name : 'emmymighty',
+    api_key : '237413553651322',
+    api_secret : 'RJMBkBHxDBeO5j0dnKCB_jih5W0'
+});
+
 
 exports.createGif = (req, res, next)=>{
     const gifUrl = req.body.gifUrl;
     const gifId = req.body.uId;
+
+    cloudinary.uploader.upload(gifUrl, (err, result)=>{
+        console.log(result);
+    });
 
     const query = {
         text: 'INSERT INTO gifs(gif_url, user_id) VALUES($1, $2)',

@@ -6,7 +6,7 @@ const express       = require('express'),
 
 
 //Write or share articles on subjects of interest
-router.post('/articles', articleCtrl.createArticle);
+router.post('/articles', auth, articleCtrl.createArticle);
 
 
 
@@ -20,7 +20,7 @@ router.delete('/articles/:id', auth, articleCtrl.deleteArticle);
 
 
 //Comment on other people's article's posts
-router.post('/articles/comments', articleCtrl.commentArticle);
+router.post('/articles/comments', auth, articleCtrl.commentArticle);
 
 
 

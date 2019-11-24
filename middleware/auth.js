@@ -6,12 +6,13 @@ module.exports = (req, res, next)=>{
         const token = req.headers.authorization.split(' ')[1];
         // decode the token
         const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+        console.log(decodedToken)
         //extract userId
         const userId = decodedToken.userId;
-        if(req.body.userId && req.body.userId !== userId){
-            throw 'Invalid user Id'
+        if(userId){
+            next()
         } else{
-            next();
+            return res.status(401).json({ error: 'Not Authorized'})
         }
     }catch{
         res.status(401).json({
